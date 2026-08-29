@@ -76,7 +76,13 @@ img {
 }
 
 section {
-  padding: 96px 24px;
+  padding: 80px 24px;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: 96px 24px;
+  }
 }
 
 .wrap {
@@ -93,7 +99,7 @@ section {
   color: var(--mango);
   display: inline-block;
   margin-bottom: 8px;
-  transform: rotate(-2deg);
+  /* transform: rotate(-2deg); */
 }
 
 .eyebrow--dark {
@@ -323,9 +329,15 @@ header.scrolled {
    Hero
    ========================================================= */
 .hero {
-  padding: 170px 24px 110px;
+  padding: 120px 20px 72px;
   position: relative;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 160px 24px 100px;
+  }
 }
 
 .hero::before {
@@ -926,11 +938,18 @@ header.scrolled {
 .cta-final {
   background: linear-gradient(160deg, var(--bay-deep), #030812);
   border-radius: 28px;
-  margin: 0 24px 96px;
-  padding: 64px 32px;
+  margin: 0 16px 64px;
+  padding: 48px 24px;
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .cta-final {
+    margin: 0 24px 96px;
+    padding: 64px 32px;
+  }
 }
 
 .cta-final::after {
