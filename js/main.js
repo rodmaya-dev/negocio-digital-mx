@@ -71,3 +71,58 @@ const io = new IntersectionObserver(
 );
 
 revealTargets.forEach((el) => io.observe(el));
+
+/* =========================================================
+   Auto carousels
+   ========================================================= */
+function initCarousels() {
+  const carousels = document.querySelectorAll(".carousel");
+
+  carousels.forEach((carousel) => {
+    const slides = carousel.querySelectorAll(".carousel-slide");
+    const dotsContainer = carousel.querySelector(".carousel-dots");
+    if (slides.length < 2) return;
+
+    let current = 0;
+    const interval = Number(carousel.dataset.interval) || 4500;
+    let timer = null;
+
+    // Crear dots
+    slides.forEach((_, i) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("aria-label", `Ir a imagen ${i + 1}`);
+      if (i === 0) btn.classList.add("active");
+      btn.addEventListener("click", () => goTo(i));
+      dotsContainer.appendChild(btn);
+    });
+
+    const dots = dotsContainer.querySelectorAll("button");
+
+    function goTo(index) {
+      slides[current].classList.remove("active");
+      dots[current].classList.remove("active");
+      current = index;
+      slides[current].classList.add("active");
+      dots[current].classList.add("active");
+      resetTimer();
+    }
+
+    function next() {
+      goTo((current + 1) % slides.length);
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(next, interval);
+    }
+
+    // Pausa al pasar el mouse (mejor UX)
+    carousel.addEventListener("mouseenter", () => clearInterval(timer));
+    carousel.addEventListener("mouseleave", resetTimer);
+
+    resetTimer();
+  });
+}
+
+initCarousels();
