@@ -1,0 +1,19 @@
+<svg width="200" height="200" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo RM - Versión principal footer / proyectos -->
+  <!-- Bordes redondeados ~40% del tamaño (rx=45 en un cuadrado de 112px) -->
+  <rect x="4" y="4" width="112" height="112" rx="45" fill="white" stroke="#111111" stroke-width="3.5"/>
+  <text x="60" y="52"
+    text-anchor="middle"
+    font-family="'Courier New', Courier, monospace"
+    font-size="11"
+    fill="#111111"
+    font-weight="400"
+    letter-spacing="1">&lt;/&gt;</text>
+  <text x="60" y="79"
+    text-anchor="middle"
+    font-family="'Courier New', Courier, monospace"
+    font-size="30"
+    fill="#111111"
+    font-weight="700"
+    letter-spacing="2">RM</text>
+</svg>
